@@ -1,0 +1,25 @@
+.center {
+    text-align: center;
+}
+.actionButton {
+    margin: 40px 20px 0 0;
+    :hover{
+        color: gray;
+    }
+}
+.buttons {
+    align-items: center;
+    width: 40%;
+    height: 50px;
+    margin:0 20px 20px 0;
+    :hover {
+        color: gray;
+    }
+}
+.upperButton {
+    margin:0 20px 20px 0;
+
+    :hover {
+      color: gray;  
+    }
+}

@@ -1,0 +1,40 @@
+<header>
+  <div class="center">
+    <div *ngIf="!showCustumerInfo">
+      <h1>მოხმარებლის სია</h1>
+      <h3>ინფორმაციის სანახავად დააჭირეთ სახელს</h3>
+    </div>
+    <div *ngIf="showCustumerInfo && !showPost">
+     <h1>მომხმარებლის ინფორმაცია</h1>
+    </div>
+    <h1 *ngIf="showPost">მოხმარებლის პოსტები</h1>
+  </div>
+</header>
+<body>
+  <div class="center">
+    <div *ngIf="!showCustumerInfo">
+      <button class="buttons" *ngFor="let info of castInfo$ | async" (click)="openInfo(info)">
+        {{info.title}}
+      </button>
+    </div>
+  </div>
+  <div class="center" *ngIf="showCustumerInfo && !showPost">
+    <div>ID: {{custumerId}}</div>
+    <div>მოხმარებლის ID: {{custumerUserId}}</div>
+    <div>სახელი: {{custumerName}}</div>
+    <div>შესრულებულია? {{custumerCompleted}}</div>
+    <div>    
+      <button class="actionButton" (click)="backToCustumers()">უკან დაბრუნება</button>
+      <button class="actionBUtton" (click)="showPosts()">პოსტების ნახვა</button>
+    </div>
+  </div>
+  <div *ngIf="showPost">
+    <div class="center">
+      <button class="upperButton" (click)="goBackPage()">მომხმარებლის გვერდზე დაბრუნება</button>
+      <button class="upperButton" (click)="onMainPage()">მთავარ გვერდზე დაბრუნება</button>
+    </div>
+    <div *ngFor="let post of castPosts$ | async">
+      {{post.id}}) {{post.body}}.
+    </div>
+  </div>
+</body>
